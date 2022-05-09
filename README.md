@@ -17,5 +17,7 @@ docker-compose exec app go run main.go
 - [Grafana](http://localhost:3000)
 
 # Grafana
-- user: admin
-- password: admin
+- User: admin
+- Password: admin
+#### Add DataSource
+- url: http://prometheus:9090
