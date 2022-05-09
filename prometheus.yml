@@ -1,0 +1,31 @@
+global:
+  scrape_interval:     15s # Set the scrape interval to every 15 seconds. Default is every 1 minute.
+  evaluation_interval: 15s # Evaluate rules every 15 seconds. The default is every 1 minute.
+
+# Alertmanager configuration
+# alerting:
+#   alertmanagers:
+#     - static_configs:
+#         - targets:
+#           # - alertmanager:9093
+
+# Load rules once and periodically evaluate them according to the global 'evaluation_interval'.
+rule_files:
+
+# A scrape configuration containing exactly one endpoint to scrape:
+scrape_configs:
+  - job_name: 'prometheus'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['localhost:9090']
+  
+  - job_name: 'docker'
+    scrape_interval: 5s
+    static_configs:
+      - targets: ['docker.for.mac.host.internal:9323']
+  
+  - job_name: go_api
+    scrape_interval: 5s
+    static_configs:
+    - targets:
+      - api:8181
